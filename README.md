@@ -16,14 +16,14 @@
 
 ### 핵심 가치
 
-| 특징 | 설명 |
-|------|------|
-| 🔬 **컴퓨터 비전 피부 분석** | MediaPipe Face Mesh + OpenCV로 홍조·유분 수치를 정량화 |
-| 🤖 **LangGraph 멀티 노드 워크플로우** | 6개 노드가 순차적으로 연결된 상태 기반 그래프 아키텍처 |
-| 🧠 **GPT-4o 기반 지능형 해석** | 생체 수치 보정, 의도 분석, 리포트 생성을 GPT-4o가 수행 |
-| 📚 **RAG 기반 스킨케어 지식 검색** | ChromaDB + HuggingFace 임베딩으로 전문 블로그 지식 검색 |
-| 🛡️ **식약처 기준 알레르기 성분 필터링** | 25종 알레르기 유발 성분 + 유저 맞춤 성분 제외 기능 |
-| 🛍️ **올리브영 실제 제품 DB 기반 추천** | 4개 카테고리(토너/세럼/로션/크림) 루틴 순서 추천 |
+| 특징                                   | 설명                                                    |
+| -------------------------------------- | ------------------------------------------------------- |
+| 🔬 **컴퓨터 비전 피부 분석**            | MediaPipe Face Mesh + OpenCV로 홍조·유분 수치를 정량화  |
+| 🤖 **LangGraph 멀티 노드 워크플로우**   | 6개 노드가 순차적으로 연결된 상태 기반 그래프 아키텍처  |
+| 🧠 **GPT-4o 기반 지능형 해석**          | 생체 수치 보정, 의도 분석, 리포트 생성을 GPT-4o가 수행  |
+| 📚 **RAG 기반 스킨케어 지식 검색**      | ChromaDB + HuggingFace 임베딩으로 전문 블로그 지식 검색 |
+| 🛡️ **식약처 기준 알레르기 성분 필터링** | 25종 알레르기 유발 성분 + 유저 맞춤 성분 제외 기능      |
+| 🛍️ **올리브영 실제 제품 DB 기반 추천**  | 4개 카테고리(토너/세럼/로션/크림) 루틴 순서 추천        |
 
 ---
 
@@ -41,14 +41,14 @@ graph LR
     F --> G((END))
 ```
 
-| 노드 | 역할 | 핵심 기술 |
-|------|------|-----------|
-| **Intent** | 유저 메시지에서 제외 성분·관심사 추출 | GPT-4o, JSON 파싱 |
-| **Vision** | 피부 이미지에서 홍조/유분 수치 측정 | MediaPipe Face Mesh, OpenCV (Lab/HSV 색공간) |
-| **Verify** | 센서 수치를 GPT로 논리적 보정 (가중 평균 0.3:0.7) | GPT-4o, 데이터 보정 로직 |
-| **Retriever** | 피부 타입에 맞는 전문 지식 검색 | ChromaDB, HuggingFace Embeddings (multilingual-e5-base) |
-| **Database** | 피부 타입·알레르기 기반 제품 필터링 검색 | SQLite, 올리브영 제품 DB |
-| **Interpreter** | 종합 분석 리포트 및 루틴 추천 생성 | GPT-4o, LangChain LCEL |
+| 노드            | 역할                                              | 핵심 기술                                               |
+| --------------- | ------------------------------------------------- | ------------------------------------------------------- |
+| **Intent**      | 유저 메시지에서 제외 성분·관심사 추출             | GPT-4o, JSON 파싱                                       |
+| **Vision**      | 피부 이미지에서 홍조/유분 수치 측정               | MediaPipe Face Mesh, OpenCV (Lab/HSV 색공간)            |
+| **Verify**      | 센서 수치를 GPT로 논리적 보정 (가중 평균 0.3:0.7) | GPT-4o, 데이터 보정 로직                                |
+| **Retriever**   | 피부 타입에 맞는 전문 지식 검색                   | ChromaDB, HuggingFace Embeddings (multilingual-e5-base) |
+| **Database**    | 피부 타입·알레르기 기반 제품 필터링 검색          | SQLite, 올리브영 제품 DB                                |
+| **Interpreter** | 종합 분석 리포트 및 루틴 추천 생성                | GPT-4o, LangChain LCEL                                  |
 
 ---
 
@@ -94,17 +94,17 @@ SKIN-STAR/
 
 ## 🔧 기술 스택
 
-| 분류 | 기술 |
-|------|------|
-| **AI 오케스트레이션** | LangGraph, LangChain, LangChain-OpenAI |
-| **LLM** | OpenAI GPT-4o |
-| **컴퓨터 비전** | MediaPipe Face Mesh, OpenCV, NumPy |
-| **벡터 DB (RAG)** | ChromaDB, HuggingFace Embeddings (`intfloat/multilingual-e5-base`) |
-| **제품 DB** | SQLite (SQLAlchemy) |
-| **웹 UI** | Streamlit |
-| **데이터 수집** | BeautifulSoup4, Trafilatura, Requests |
-| **데이터 처리** | Pandas, scikit-learn |
-| **언어** | Python 3.10+ |
+| 분류                  | 기술                                                               |
+| --------------------- | ------------------------------------------------------------------ |
+| **AI 오케스트레이션** | LangGraph, LangChain, LangChain-OpenAI                             |
+| **LLM**               | OpenAI GPT-4o                                                      |
+| **컴퓨터 비전**       | MediaPipe Face Mesh, OpenCV, NumPy                                 |
+| **벡터 DB (RAG)**     | ChromaDB, HuggingFace Embeddings (`intfloat/multilingual-e5-base`) |
+| **제품 DB**           | SQLite (SQLAlchemy)                                                |
+| **웹 UI**             | Streamlit                                                          |
+| **데이터 수집**       | BeautifulSoup4, Trafilatura, Requests                              |
+| **데이터 처리**       | Pandas, scikit-learn                                               |
+| **언어**              | Python 3.10+                                                       |
 
 ---
 
@@ -171,7 +171,7 @@ streamlit run src/main.py
 분석 완료 후 다음과 같은 정보가 제공됩니다:
 
 - **피부 타입 진단** — 건성 / 지성 / 복합성 / 민감성 조합
-- **상세 피부 지표** — 홍조 수치 (0~100), 유분 수치 (0~100)
+- **상세 피부 지표** — 홍조 수치 (0-100), 유분 수치 (0-100)
 - **전문 지식 가이드** — RAG 기반 피부타입별 케어 가이드
 - **AI 추천 데일리 루틴** — 토너 → 세럼 → 로션 → 크림 4단계 루틴
 - **알레르기 안전성 검사** — 제품별 식약처 기준 주의 성분 표시
@@ -180,11 +180,11 @@ streamlit run src/main.py
 
 ## 📦 데이터 소스
 
-| 데이터 | 출처 | 용도 |
-|--------|------|------|
-| 제품 정보 (4개 카테고리) | 올리브영 (CSV) | SQLite 기반 제품 추천 DB |
-| 스킨케어 전문 지식 | 네이버 블로그, 티스토리 등 | ChromaDB 기반 RAG 지식 검색 |
-| 알레르기 유발 성분 25종 | 식약처 고시 | 제품 안전성 필터링 기준 |
+| 데이터                   | 출처                       | 용도                        |
+| ------------------------ | -------------------------- | --------------------------- |
+| 제품 정보 (4개 카테고리) | 올리브영 (CSV)             | SQLite 기반 제품 추천 DB    |
+| 스킨케어 전문 지식       | 네이버 블로그, 티스토리 등 | ChromaDB 기반 RAG 지식 검색 |
+| 알레르기 유발 성분 25종  | 식약처 고시                | 제품 안전성 필터링 기준     |
 
 ---
 
